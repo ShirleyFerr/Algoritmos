@@ -6,15 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="contar()">contar</button>
+    <button onclick="sortear()">Sortear</button>
     <div id="divMensagem"></div>
 </body>
 </html>
 <script>
-    function contar(){
+    function sortear() {
+        var sorteado = Math.random();
         var mensagem = ``;
-        for (var contador = 0; contador <= 15; contador++) {
-            mensagem += `${contador}<br> `;
+
+        if (sorteado > 0.5) {
+            mensagem = `${sorteado.toFixed(4)} <br> Eu arrendondaria para 1`;
+        } else {
+            mensagem = `${sorteado.toFixed(4)} <br> Eu arrendoraria para 0`;
         }
         divMensagem.innerHTML = mensagem;
     }

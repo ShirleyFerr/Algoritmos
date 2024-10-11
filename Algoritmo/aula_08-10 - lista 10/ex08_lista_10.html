@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="gerarNota()">Gerar uma nota de aluno entre 0 e 10</button>
+    <br><br>
+    <button onclick="gerarFreq()">Gerar uma frequência de aluno entre 0 e 100</button>
+    <div id="divNota"></div>
+    <div id="divFreq"></div>
+    <div id="divButton"></div>
+</body>
+</html>
+<script>
+    var nota = 0;
+    var freq = 0;
+    function gerarNota(){
+        nota = (Math.random() * 10).toFixed(1) 
+        divNota.innerHTML = `Nota do aluno: ${nota} <br>`;
+    }
+    function gerarFreq(){
+        freq = (Math.random() * 100).toFixed(1) 
+        divFreq.innerHTML = `Frequencia do aluno: ${freq}% <br><br>`;
+        divButton.innerHTML = `<button onclick="situacao()">Ver Situação</button><br>`
+    }
+    function situacao(){
+        if (nota < 6 || freq < 75) {
+            alert("Aluno em situação ruim. #PartiuTentarDeNovo");
+        } else {
+            alert("Aluno aprovado");
+        }
+        
+    }
+
+</script>

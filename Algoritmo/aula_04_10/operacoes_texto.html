@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite um texto <input oninput="analisar()" type="text" id="iptTexto">
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var textoOriginal = iptTexto.value; 
+        console.log(textoOriginal);
+        
+        var mensagem = ``;
+        var tamanhoTexto = textoOriginal.length;
+        // length conta qtd de caracteres
+
+        mensagem += `Quantidade de caracteres: ${tamanhoTexto}<br>`; 
+        
+        if (tamanhoTexto >= 8) {
+            mensagem += `o texto possui ao menos 8 caracteres <br>`;
+        } else {
+            mensagem += `O texto não possui * caracteres <br>`
+        }
+        // validar se termina com `.com` ou `.br`
+        // pra duas validações PRECISA ser duas validações, nada de OU ou && 
+
+        var terminaCom = textoOriginal.endsWith(`.com`);
+        var terminaBr = textoOriginal.endsWith(`.br`);
+
+        //   neste caso não precisa do == true pois
+        //   já é verificado anteriormente na variavel
+
+        if (terminaCom == true) {
+            mensagem += `<br>Termina com '.com' <br>`;
+        } else if (terminaBr == true) {
+            mensagem += `<br>Termina com '.br' <br>`;
+        } else {
+            mensagem += `<br>Não termina com '.com ' nem '.br' <br>`
+        }
+
+        // verificar se inicia de tal forma
+
+        var comecaABC = textoOriginal.startsWith('abc')
+        
+        if (comecaABC == true) {
+            mensagem += `começa com abc <br>`;
+        } else {
+            mensagem += `nao começa com abc <br>`
+        }
+
+        mensagem += `<br>Texto original ${textoOriginal} <br>`;
+        var textoMinusculo = textoOriginal.toLowerCase();   
+        mensagem += `<br>Texto minusculo ${textoMinusculo} <br>`;
+
+        var textoMaiusculo = textoOriginal.toUpperCase();
+        mensagem += `<br>Texto maiusculo ${textoMaiusculo} <br>`;
+
+        // VALIDAR SE TEM CARACTERE minusculo
+        if (textoOriginal != textoMaiusculo){
+            mensagem += `<br>possui caracteres minúsculos`
+        } else {
+            mensagem += `<br>TEXTO TOTALMENTE MAIUSCULO!`;
+        }
+
+        if (textoOriginal != textoMinusculo){
+            mensagem += `<br>POSSUI CARACTERES MAIUSCULOS!`
+        } else {
+            mensagem += `<br> texto totalmente minusculo!`;
+        }
+
+        // indexssaçsdassão? 
+        // espaço conta como caractere
+        // validar se tem caractere @
+
+        var primeiroCaractere = textoOriginal[0];
+        var terceiroCaractere = textoOriginal[2];
+        var ultimoCaractere = textoOriginal[tamanhoTexto - 1];
+        
+        mensagem += `<br> Primeiro caractere: ${primeiroCaractere}
+        <br> Terceiro caractere: ${terceiroCaractere}
+        <br> ultimo caractere: ${ultimoCaractere}`
+
+        var indiceArroba = textoOriginal.indexOf(`@`); //amarzena o indice/posição
+        var indiceCom = textoOriginal.indexOf(`.com`);
+        mensagem += `<br>Indice de @: ${indiceArroba}`;
+        // se não houver @ vai devolver -1 para indicar erro;
+
+        if (indiceArroba >= 0) {
+            mensagem += `<br><br>Contém "@" no texto original`;
+        } else {
+            mensagem += `<br><br>Não contem @`
+        }
+
+        if (indiceArroba < indiceCom) {
+            mensagem += `<br> o arroba está ANTES do .com`
+        } else {
+            mensagem += `<br> INVALIDO!`
+        }
+
+        var possuiArroba = textoOriginal.includes(`@`); // armazena true false
+        mensagem += `<br> O texto possui @?${possuiArroba} <br>`
+
+        // texto sem espaço
+
+        var textoSemEspaco = textoOriginal.replaceAll('A','@');
+        mensagem += `Texto sem espaços: ${textoSemEspaco} <br>`;
+
+        var substitueCaractere = textoOriginal.replace('a', '@');
+        mensagem += `Substituindo primeiro 'a': ${substitueCaractere} <br>` 
+
+    
+
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

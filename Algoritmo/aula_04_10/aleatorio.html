@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Minimo: <input type="number" id="iptMin">
+    <br>
+    Maximo: <input type="number" id="iptMax">
+    <br>
+    <button onclick="gerar()">Gerar Aleatório</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function gerar() {
+        var min = Number(iptMin.value);
+        var max = Number(iptMax.value);
+
+        var aleatorio = Math.random();
+        var cincoQuinze = aleatorio * 10 + 5;
+
+        var intervalo = max - min;
+        var aleatorioUser = aleatorio * intervalo + min;
+        var aleatorioInteiro = aleatorioUser.toFixed(2);
+        mensagem = ``;
+
+        // toFixed arrendonda 5.99 -> 6 ou 5.12 -> 5 (não é boa pratica
+        // na geração de números aleatórios apenas na visualização desse número)
+        
+        // parseInt (pega parcela inteira do número) corta os decimais 5.99 -> 5 
+
+        divMensagem.innerHTML = `Aleatorio gerado ${aleatorio} <br>
+        aleatorio cinco quinze: ${cincoQuinze}<br>
+        aleatório solicitado: ${aleatorioInteiro}`;
+
+    }
+</script>

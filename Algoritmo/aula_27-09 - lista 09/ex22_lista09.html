@@ -28,8 +28,8 @@
         for (var contador = 1; contador <= qtdDep; contador++){
            
             if (contador % 3 == 0) {
-            valor = valor + (valor * 0.01);
             saldo += valor;
+            saldo *= 1.01;
             mensagem += `${contador}º Mês: R$${saldo}<img style="width: 20px; height: 20px;"
                 src="https://cdn-icons-png.flaticon.com/512/148/148841.png"><br>`
            } else {

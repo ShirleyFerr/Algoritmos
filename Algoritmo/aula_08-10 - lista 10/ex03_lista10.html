@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button  onclick="jogar()">Jogar Dado</button>   
+    <div id="divMensagem"></div>
+
+</body>
+</html>
+<script>
+    function jogar(){
+        var numero = Math.random() * 20;
+
+        divMensagem.innerHTML = `
+        <span style="width: 100px; height: 100px;
+        display: flex; justify-content: center; align-items: center; text-align: center;
+        background-color: black; color: white;">${numero.toFixed(0)}</span>
+        `;
+    }
+</script>
