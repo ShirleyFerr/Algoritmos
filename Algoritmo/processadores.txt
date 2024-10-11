@@ -1,0 +1,8 @@
+https://www.intel.com.br/content/www/br/pt/products/sku/236773/intel-core-i9-processor-14900k-36m-cache-up-to-6-00-ghz/specifications.html
+https://www.kabum.com.br/produto/506014/processador-intel-core-i9-14900k-14-geracao-3-6-ghz-6-0-ghz-turbo-cache-36mb-intel-lga1700-bx8071514900k?utm_id=21416437560&gad_source=1&gclid=CjwKCAjw_Na1BhAlEiwAM-dm7GOiao2zvlQAMPb74LqS3IfxArJ_mLBVGUUXyVyEG2Leeca7G0pQmRoCkrAQAvD_BwE
+https://www.amd.com/pt/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html
+https://www.adrenaline.com.br/produto/processador/amd-ryzen-9-9950x/
+https://www.gigantec.com.br/processador-amd-ryzen-9-9950x-4-3ghz-5-7ghz-turbo-16-cores-32-threads-am5-80mb-radeon-graphics-sem-cooler-100-100001277wof.html
+
+O Intel Core i9-14900K possui 24 núcleos, 32 threads com velocidade de clock de 3.2 GHz podendo chegar até 6,0 GHz, arquitetura 64 bits, litografia intel 7, com 36mb de memória e TDP de 125W. O último processador apresentado pela ryzen, o AMD RYZEN 9 9950X, possuindo 16 núcleos, 32 threads com velocidade de clock básica de 4,3 GHz podendo atingir 5,7GHz, arquitetura 64 bits, com 80MB de memória cache e TDP de 170W.
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+   
+    Qual a quantidade de votos do Candidato A?
+    <input type="number" id="iptVtA"><br>
+    Qual a quantidade de votos do Candidato B?
+    <input type="number" id="iptVtB"><br>
+    Qual a quantidade de votos brancos?
+    <input type="number" id="iptVtBrancos"><br>
+    Qual a quantidade de votos nulos?
+    <input type="number" id="iptVtNulos"><br>
+    
+    <button onclick="eleicao()">Resultado da Eleição</button><br>
+
+    <div id="divMensagem"></div>
+
+</body>
+</html>
+
+<script>
+   function eleicao(){
+    candidatoA = Number(iptVtA.value);
+    candidatoB = Number(iptVtB.value);
+    votosInvalidos = (Number(iptVtBrancos.value) + Number(iptVtNulos.value));
+    
+    totalVotos = candidatoA + candidatoB + votosInvalidos;
+    
+    PercentcandidatoA = (candidatoA / totalVotos) * 100;
+    PercentcandidatoB = (candidatoB / totalVotos) * 100;
+    PercentInvalidos = (votosInvalidos / totalVotos) * 100; 
+    
+    mensagem = `Total de votos: ${totalVotos} <br>
+     Candidato A: ${PercentcandidatoA}% (${candidatoA} votos) <br>
+     Candidato B: ${PercentcandidatoB}% (${candidatoB} votos) <br>  
+     Inválidos: ${PercentInvalidos}% (${votosInvalidos} votos)` 
+    divMensagem.innerHTML = mensagem
+   } 
+</script>

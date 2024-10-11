@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura</title>
+</head>
+
+<body>
+    Qual a Temperatura atual? <input type="number" id="iptTemp"><br>
+    <button onclick="alerta()">alerta</button>
+</body>
+
+</html>
+
+<script>
+    function alerta() {
+        var temperatura = Number(iptTemp.value);
+
+        //estrutura de decisão alinhada
+        if (temperatura >= 21) {
+            if (temperatura <= 24) {
+                alert( "a temperatura está CONFORTÁVEL");
+            } else {
+                alert("a temperatura está DESCONFORTÁVEL");
+            }
+        } else {
+            alert("a temperatura está DESCONFORTÁVEL")
+        }
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    Qual a nota do enem?<input type="number" id="iptEnem"><br>
+    Qual a nota do vestibular interno?<input type="number" id="iptVest">
+    <button onclick="analise()">Avaliação</button>
+</body>
+</html>
+<script>
+     function analise(){
+        var notaEnem = Number(iptEnem.value);
+        var notaVest = Number(iptVest.value);
+
+        if (notaEnem >= 800 || notaVest >= 700) {
+            alert(`Parabéns! Aprovado`)
+        } else {
+            alert(`Tente semestre que vem!`)
+        }
+     }
+</script>

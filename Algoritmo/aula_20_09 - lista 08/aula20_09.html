@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var nome = 'fulano';
+    var numero = 10;
+    var dezMaiorMil = numero > 1000; // false
+    var dezMenorVinte = numero < 20; // true
+    var nomeFulano = nome == "fulano"; // true
+
+    // adicionar "== true" é desnecessário nesse caso, ele já foi validado como true ou false 
+    // anteriormente na declaração da variável
+    // true == true -> true
+    // false == true -> false
+    // operador && tem prioridade em comparação ao operador || 
+    if (dezMaiorMil || dezMenorVinte && nomeFulano) {
+        divMensagem.innerHTML = `10 é maior que 1000`;
+    } else {
+        divMensagem.innerHTML = `10 é menor que 1000`;
+    }
+
+
+</script>

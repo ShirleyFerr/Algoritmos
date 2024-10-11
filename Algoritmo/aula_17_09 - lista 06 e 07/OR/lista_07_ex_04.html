@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    Qual o modo de pagamento? (Dinheiro, Cartão de débito, Cartão de crédito, Boleto)
+    <input type="text" id="iptModo">
+    <br>
+    <button onclick="pagamento()">Analisar compra</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+     function pagamento(){
+        var modoPagamento = iptModo.value;
+        var mensagem = ``;
+
+        if (modoPagamento == `dinheiro` || modoPagamento == `cartão de debito`) {
+            mensagem = `Você terá que pagar a vista`;
+        } else if (modoPagamento == `cartão de credito` || modoPagamento == `boleto`) {
+            mensagem = `Pagamento poderá ser parcelado`;
+        }
+        divMensagem.innerHTML = mensagem;
+     }
+    
+</script>

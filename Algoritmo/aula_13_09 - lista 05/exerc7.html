@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    Quantos pães franceses tem comido por dia?
+    <input type="number" id="iptPaes"> <br>
+    Quantos pacotes de bolacha recheada tem comido por dia?
+    <input type="number" id="iptBolacha"> <br>
+    Quantos copos de achocolatado tem tomado por dia?
+    <input type="number" id="iptToddy"> <br>
+    
+    <button onclick="verificar()">Verificar Calorias</button>
+    <div id="resposta"></div>
+</body>
+</html>
+<script>
+
+    function verificar() {
+        var pao  = Number(iptPaes.value);
+        var bolacha = Number(iptBolacha.value);
+        var achocolatado = Number(iptToddy.value);
+
+        var calorias = (pao * 50) + (bolacha * 80) + (achocolatado * 70);
+
+        if (calorias < 200) {
+            mensagem = `Parabéns, vai ficar em forma!`
+        }
+       
+        else if (calorias <= 400) mensagem = `Cuidado, vai ficar menos saudável !`
+        else if (calorias > 400 ) mensagem = `Alerta crítico de saúde!!!`
+        
+        resposta.innerHTML = mensagem;
+
+    }
+</script>

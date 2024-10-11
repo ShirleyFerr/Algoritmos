@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 09</title>
+</head>
+<body>
+    Marca da TV: 
+        <select id="slctMarca">
+        <option value="samsung">Samsung</option>
+        <option value="LG">LG</option>
+        <option value="mondial">Mondial</option>
+        <option value="britania">Britânia</option>
+        </select>
+    <br>
+    Preço da TV: <input type="number" id="iptPreco">
+    <br>
+    <button onclick="analisar()">Analisar Compra</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var marca = slctMarca.value;
+        var preco = Number(iptPreco.value);
+        var mensagem = ``
+        
+        if (preco < 800 || preco > 2000){
+            mensagem = `TV fora da faixa de preço. `; 
+                 if (preco < 800){
+                     mensagem += `Preço baixo demais!`;
+                 } else {
+                     mensagem += `TV cara demais, infelizmente`;
+                 }
+        } else if (marca == "mondial" || marca == "britania"){
+            mensagem = `Na faixa de preço, porém marca não confiável`
+        } else  {
+            mensagem = `Essa TV pode entrar na sua lista!`
+        }
+        
+        divMensagem.innerHTML = mensagem
+    }
+</script>

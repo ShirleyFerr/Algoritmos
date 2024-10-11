@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o primeiro número: <input type="number" id="iptNum" oninput="fases()">
+    <div id="resposta"></div>
+</body>
+</html>
+<script>
+    function fases() {
+        var number = Number(iptNum.value);
+        var mensagem = ``;
+
+        for (var contador = 0; contador <= number; contador++){
+            if (contador >= 0 && contador <= 4) {
+                mensagem += `${contador} anos (Primeira Infância)<br>`;
+            }
+            else if (contador >= 5 && contador <= 6) mensagem += `${contador} anos (Pré-escolar) <br>`; 
+            else if(contador > 6 && contador <= 10) mensagem += ` ${contador} anos (Segunda Infância) <br>`;
+            else if (contador > 10 && contador <= 18) mensagem += `${contador} anos (Adolescência)<br>`;
+            else if (contador > 18 && contador <= 50) mensagem += `${contador} anos (Adulto)<br>`;
+            else if (contador > 50 && contador <= 100) mensagem += `${contador} anos (Melhor Idade)<br>`;
+            else if (contador > 100) mensagem += `${contador} anos (Matusálem)<br>`;
+        }
+            
+        resposta.innerHTML = mensagem;
+        resposta.innerHTML += `Você tem ${number} anos de idade!`;
+    }
+</script>

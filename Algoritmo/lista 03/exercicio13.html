@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+<body>
+   
+    Qual o valor da passagem de ônibus?<br>
+    <input id="iptPassagem" type="number"><br>
+    Quantas viagens fará por mês?<br>
+    <input id="iptViagens" type="number"><br>
+    Qual a distância da sua casa até seu trabalho??<br>
+    <input id="iptDistancia" type="number"><br>
+    <div id="divMensagem"></div>
+    <button onclick="calcularVT()">Calcular VT</button>
+
+</body>
+</html>
+
+<script>
+    function calcularVT(){
+        var valorPassagem = Number(iptPassagem.value);
+        var qtdViagens = Number(iptViagens.value);
+        var distancia = Number(iptDistancia.value);
+        
+        var qtdViagensApp = qtdViagens * 0.1;
+        var qtdViagensOnibus = qtdViagens - qtdViagensApp;
+        
+        var valorApp =  qtdViagensApp * (distancia * 0.75);
+        var valorOnibus = valorPassagem * qtdViagensOnibus;
+        
+        var custoTotal = valorOnibus + valorApp;
+        
+        var mensagem = `Você vai gastar R$${custoTotal} por mês com transporte.`;
+
+        divMensagem.innerHTML = mensagem;
+    }
+</script>
+

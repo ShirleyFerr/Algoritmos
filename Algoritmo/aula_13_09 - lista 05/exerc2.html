@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    Qual a renda familiar mensal? <input type="number" id="iptRenda">
+    <button onclick="analisar()">Analisar Renda</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var renda = Number(iptRenda.value);
+        var mensagem = ``
+
+        if (renda <= 250) {
+            mensagem = `Classe E`
+        } 
+        
+        else if (renda <= 900 ) mensagem = `Classe D`
+        else if (renda <= 2500) mensagem = `Classe C`
+        else if (renda <= 9500) mensagem = `Classe B`
+            
+            else if (renda > 9500) { mensagem = `Classe A`
+            }
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

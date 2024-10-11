@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 3</title>
+</head>
+<body>
+    Tipo de passageiro:
+    <br>
+    <select name="Tipo de Passageiro" id="selectPassageiro">
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="especial">Idoso/PNE</option>
+    </select>
+    <br>
+    Tipo de Passagem:
+    <br>
+    <select name="Tipo de Passagem" id="selectPassagem">
+        <option value="passUnica">Passagem Única</option>
+        <option value="passInt">Passagem Integração</option>
+    </select>
+    <br>
+    <button onclick="calcular()">Simular Preço</button>
+    <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var passageiro = selectPassageiro.value;
+        var passagem = selectPassagem.value;
+
+        var precoPassUni = 4.40;
+        var precoPassInt = 5.90;
+
+        var mensagem = ``;
+
+        if (passageiro == `comum` && passagem == `passUnica`){
+            mensagem = `Valor da passagem escolhida: ${precoPassUni}`;
+        } else if (passageiro == `comum` && passagem == `passInt`) {
+            mensagem = `Valor da passagem escolhida: ${precoPassInt}`;
+        } else if (passageiro == `estudante` && passagem == `passUnica`) {
+            mensagem = `Valor da passagem escolhida: ${precoPassUni / 2}`
+        } else if (passageiro == `estudante` && passagem == `passInt`) {
+            mensagem = `Valor da passagem escolhida: ${precoPassInt / 2}`;
+        } else if(passageiro == `especial` && (passagem == `passInt`|| passagem == `passUnica`)) {
+            mensagem = `Valor da passagem escolhida: ${0}`;
+        }
+       
+        divMensagem.innerHTML = mensagem;
+    }
+</script>
