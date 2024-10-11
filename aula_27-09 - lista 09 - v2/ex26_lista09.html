@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número de 10 a 100:
+    <input type="number" id="iptNumber">
+    <button onclick="somar()">Somar pares</button>
+    <div id="resposta"></div>
+</body>
+</html>
+<script>
+    function somar(){
+        var number = Number(iptNumber.value);
+        mensagem = ``;
+
+        if (number < 10 || number > 500) {
+            alert("Este número não atende os critérios!");
+        }
+
+    }
+</script>

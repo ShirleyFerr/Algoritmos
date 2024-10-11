@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    Insira o valor para ser depositado ou retirado:
+    <input type="number" id="iptValor"><br>
+    <button onclick="depositar()">Depositar</button><br>
+    <button onclick="remover()">Retirar</button>
+</body>
+</html>
+
+<script>
+    var valorUser = 0 
+    function depositar(){
+         var deposito = Number(iptValor.value);
+         valorUser =  valorUser + deposito 
+        alert("Depósito de R$" +  deposito + " efetuado! Saldo atual: R$" + valorUser);
+    }
+    function remover(){
+         var retirar = Number(iptValor.value);
+         valorUser =  valorUser - retirar 
+        alert("Retirada de R$" +  retirar + " efetuado! Saldo atual: R$" + valorUser);
+    }
+</script>

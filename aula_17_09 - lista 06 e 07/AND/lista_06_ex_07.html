@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 7 lista 06</title>
+</head>
+<body>
+    Login <input type="text" id="iptLogin"><br>
+    Senha <input id="iptSenha" type="password">
+    <button onclick="logar()">Entrar</button>
+</body>
+</html>
+<script>
+    function logar(){
+        var login = iptLogin.value
+        var senha = iptSenha.value
+
+        if(login == "sptech" && senha == "digital") {
+            alert("Usuário autenticado com sucesso")
+        } else{
+            alert("Falha na autenticação")
+        }
+    }
+</script>

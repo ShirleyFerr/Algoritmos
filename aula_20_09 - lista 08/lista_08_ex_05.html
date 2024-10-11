@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 05</title>
+</head>
+<body>
+    Temperatura: <input type="number" id="iptTemp">
+    <br>
+    Umidade do ar: <input type="number" id="iptUmidade">
+    <button onclick="avaliar()">Avaliar Clima</button>
+    <div id="divMsg"></div>
+</body>
+</html>
+
+<script>
+    function avaliar(){
+        var temp = Number(iptTemp.value);
+        var umidade = Number(iptUmidade.value);
+        var mensagem = ``
+
+        if (umidade < 0 || umidade > 100) {
+            alert('Valor de umidade inválido!');
+            mensagem = ``;
+        } else if ((temp >= 22 && temp <= 23) && umidade < 60) {
+            mensagem = `Clima agradável`;
+        } else {
+            mensagem = `Clima desconfortável`; 
+        }
+        divMsg.innerHTML = mensagem;
+    }
+</script>

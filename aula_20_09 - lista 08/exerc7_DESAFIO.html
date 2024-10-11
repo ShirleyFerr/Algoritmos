@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 7</title>
+
+</head>
+<body>
+    Login: <input type="text" id="iptLogin">  <br>
+    Senha: <input type="text" id="iptSenha"><br>
+    Informação: <input type="text" id="iptInfo"><br>
+    <button onclick="autenticar()">Autenticar</button>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    var tentativas = 3
+    function autenticar() {
+        var login = iptLogin.value;
+        var senha = iptSenha.value; 
+        var info = iptInfo.value;
+
+        var mensagem = ``;
+
+        if (tentativas == 0) {
+        mensagem = `Usuário <span style="color: red;">BLOQUEADO!</span>
+         Procure seu gerente!`;
+        } else if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')){
+            mensagem = `Usuário autenticado`;
+            tentativas = 3;
+        } else {
+            mensagem = `Falha na autenticação <br>
+            Você ainda tem ${tentativas} tentativas!`;
+            tentativas -= 1;
+        }
+        
+        resposta.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    Qual a sua Altura? <input type="number" id="iptAlt">
+    <button onclick="analise()">Analisar estatura</button><br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function analise(){
+        var altura = Number(iptAlt.value);
+        var mensagem = ``
+        
+        if (altura <= 165) {
+            mensagem = `Você pode ser piloto de corrida`;
+        } else if (altura > 165) {
+            if (altura <= 180){
+                mensagem = `Você pode ser jogador de futebol`;
+            } else {
+                mensagem = `Você pode ser jogador de vôlei ou basquete`;
+            }
+        }
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

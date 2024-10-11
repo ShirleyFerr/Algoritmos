@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    Qual a meta de vendas?
+    <input type="number" id="iptMeta"> <br>
+    Qual o total de vendas?
+    <input type="number" id="iptTotal"> <br>
+
+    
+    <button onclick="analise()">Analisar Vendas</button>
+    <div id="divResposta"></div>
+</body>
+</html>
+<script>
+    function analise() {
+        var meta  = Number(iptMeta.value);
+        var total = Number(iptTotal.value);
+
+        var taxaSucesso =  (total / meta) * 100 
+
+        if (taxaSucesso < 100) {
+            mensagem = `Meta não atingida, atendeu apenas ${taxaSucesso}%`
+        }
+        else if (taxaSucesso == 100) mensagem = `Meta atingida, parabéns!!`
+        else if (taxaSucesso > 100 ) mensagem = `Meta ultrapassada! Ultrapassou em ${taxaSucesso - 100}%`
+        
+        divResposta.innerHTML = mensagem;
+
+    }
+</script>

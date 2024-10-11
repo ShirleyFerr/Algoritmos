@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8 </title>
+</head>
+<body>
+    Nome da empresa: <input type="text" id="iptEmpresa">
+    <br>
+    Bolsa da empresa: <input type="number" id="iptBolsa">
+    <br>
+    VR da empresa: <input type="number" id="iptVR">
+    <br>
+    Tempo de deslocamento: <input type="number" id="iptTemp">
+    <br>
+    <button onclick="analisar()">É Preferida?</button>
+    <div id="divMsg"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var empresa = iptEmpresa.value;
+        var bolsa = Number(iptBolsa.value);
+        var vr = Number(iptVR.value);
+        var deslocamento = Number(iptTemp.value);
+
+        if(bolsa >= 1800 || vr >= 20 || deslocamento <= 30 ) {
+            divMsg.innerHTML = `A empresa ${empresa} é uma de suas preferências`
+        } else {
+            divMsg.innerHTML = `A empresa ${empresa} está fora da sua lista`
+        }
+    }
+</script>
