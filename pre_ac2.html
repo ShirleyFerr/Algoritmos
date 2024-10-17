@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPorTEch</title>
+</head>
+<body>
+    <div id="divLogin">
+        Nome de usuário:<br>
+        <input type="text" id="iptUser"><br>
+        Senha: <br>
+        <input type="text" id="iptPsw"><br>
+        <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+       
+        var nome = iptUser.value;
+        var password = iptPsw.value;
+        var mensagem = ``;
+
+        //validação se o nome tem espaço
+        nomeTemEspaço = nome.includes(" ");
+
+        // validação caractere especial no nome 
+        var especialNome = false;
+
+        if (nome.includes(`@`)) {
+            especialNome = true;
+        }
+        else if (nome.includes(`!`)) especialNome = true; 
+        else if (nome.includes(`#`)) especialNome = true;
+        else if (nome.includes(`$`)) especialNome = true;
+        else if (nome.includes(`%`)) especialNome = true;
+        else if (nome.includes(`&`)) especialNome = true;
+        else especialNome = false;
+
+        //validação caractere especial na senha
+        var especialPassword = false;
+        
+        if (password.includes(`@`)) {
+            especialPassword = true;
+        } 
+        else if (password.includes(`!`)) especialPassword = true;
+        else if (password.includes(`#`)) especialPassword = true;
+        else if (password.includes(`%`)) especialPassword = true;
+        else if (password.includes(`&`)) especialPassword = true; 
+        else if (password.includes(`$`)) especialPassword = true;
+        else especialPassword = false;
+
+        //validação da letra maiuscula e minuscula + contagem de caracteres da senha
+        var senhaTemMaiusculo = false;
+        var senhaTemMinusculo = false;
+
+        var passwordLength = password.length;
+        
+        // var senhaMaiuscula = password.toUpperCase(); 
+        // var senhaMinuscula = password.toLowerCase(); 
+
+        for (cont = 0; cont <= passwordLength; cont++) {
+            if (password[cont] == password[cont].toUpperCase) {
+                senhaTemMaiusculo == true
+            }
+        }
+        for (cont = 0; cont <= passwordLength; cont++) {
+            if (password[cont] == password[cont].toLowerCase) {
+                senhaTemMinusculo == true
+            }
+        }
+        
+        //validação se a senha possui número 
+        var passwordNumber = false;
+
+        if (password.includes(`0`)) {
+            passwordNumber = `sim`;
+        } 
+        else if (password.includes(`1`)) passwordNumber = true;
+        else if (password.includes(`2`)) passwordNumber = true;
+        else if (password.includes(`3`)) passwordNumber = true;
+        else if (password.includes(`4`)) passwordNumber = true;
+        else if (password.includes(`5`)) passwordNumber = true;
+        else if (password.includes(`6`)) passwordNumber = true;
+        else if (password.includes(`7`)) passwordNumber = true;
+        else if (password.includes(`8`)) passwordNumber = true;
+        else if (password.includes(`9`)) passwordNumber = true;
+        else passwordNumber = false;
+
+        //validação final do cadastro
+        if (especialNome || nomeTemEspaço) {
+                mensagem = `<span style="color: red;">Nome de usuário inválido. 
+                Verifique os caracteres utilizados.</span>`
+        } else {
+            mensagem = `Deu certo!`
+        }
+        
+        if ((passwordLength >= 8 && senhaTemMaiusculo && senhaTemMinusculo && passwordNumber)){
+                   mensagem = `Deu Certo!`;
+        } else {
+            mensagem = `<span style="color: red;">A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial,
+                                uma letra maiúscula, uma letra minúscula e um número.</span>`;
+        }
+
+        divMensagem.innerHTML = mensagem;
+    }   
+</script>
