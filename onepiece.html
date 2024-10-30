@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+</head>
+<body>
+    Episodio que deseja começar a assistindo:<input type="number" id="iptEp"><br>
+    Quantidade de tempo disponível:<input type="number" id="iptTemp"><br>
+    Unidade de Tempo: 
+    <select id="iptTipoTemp">
+        <option>Selecione uma opção</option>
+        <option value="horas">Horas</option>
+        <option value="minutos">Minutos</option>
+    </select><br>
+    Pular abertura?
+    <select id="iptPularOp">
+        <option>Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select><br>
+    Pular encerramento?
+    <select id="iptPularEnd">
+        <option>Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select><br>
+    <button onclick="assistir()">Assistir Episódios</button><br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function assistir(){
+        var ep = Number(iptEp.value);
+        var temp = Number(iptTemp.value);
+        var tipoTemp = iptTipoTemp.value;
+        var pularOp = iptPularOp.value;
+        var pularEnd = iptPularEnd.value;
+
+        var tempEp = 0;
+
+        if (pularOP == 'sim' && pularEnd == 'sim') {
+            tempEp = 20;
+        } else if (pularOp == 'sim' || pularEnd == 'sim'){
+            tempEp = 22;
+        } else if (pularOP == 'nao' && pularEnd == 'nao') {
+            tempEp = 24;
+        }
+
+        if (tipoTemp == 'horas') {
+            temp = temp * 60;
+        }
+
+        qtdEpPossivel = temp / tempEp;
+
+        var mensagem = ``;
+
+        if (ep < 1 && ep > 1100) {
+            alert(`O número do episódio é inválido!`);
+        } else if (tipoTemp == 'Selecione uma opção' || pularOp == 'Selecione uma opção' || pularEnd == 'Selecione uma opção') {
+            alert(`Selecione uma opção!`);
+        } else {
+            if (pularOp == 'sim' && pularEnd == 'sim'){
+                for (var cont = 0; cont <= qtdEpPossivel; cont++) {
+                    mensagem += `Episódio: ${ep + cont} <br>`
+                    for(var minuto = 1; minuto <= temp)
+                }
+            }
+        }
+        
+    }
+
+</script>

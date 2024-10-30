@@ -1,26 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPorTEch</title>
+    <style>
+        #divCadastro {
+            display: block;
+
+        }
+
+        #divLogin, #divComprar {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="divLogin">
+    <div id="divCadastro">
         Nome de usuário:<br>
         <input type="text" id="iptUser"><br>
         Senha: <br>
         <input type="text" id="iptPsw"><br>
         <button onclick="cadastrar()">Cadastrar</button>
+        <div id="divMensagem"></div>
     </div>
-    <div id="divMensagem"></div>
+    <div id="divLogin">
+        Nome de usuário:<br>
+        <input type="text" id="iptUserLogin"><br>
+        Senha: <br>
+        <input type="text" id="iptPswLogin"><br>
+        Grupo: <select id="iptGrupo">
+            <option>Grupo Ouro</option>
+            <option>Grupo Prata</option>
+            <option>Grupo Bronze</option>
+            <option>Grupo Cobre</option>
+        </select>
+        <button onclick="acessar()">Acessar</button>
+        <div id="divLoginMensagem"></div>
+    </div>
+    <div id="divComprar">
+        <button onclick="comprar()">Comprar</button>
+        <div id="divCompraMensagem"></div>
+    </div>
 </body>
+
 </html>
 <script>
-    function cadastrar(){
-       
-        var nome = iptUser.value;
-        var password = iptPsw.value;
+    var nome = ``;
+    var password = ``;
+    var grupoUsuario = ``;
+    var codigoGrupo = 0;
+
+    function cadastrar() {
+        nome = iptUser.value;
+        password = iptPsw.value;
         var mensagem = ``;
 
         //validação se o nome tem espaço
@@ -32,7 +67,7 @@
         if (nome.includes(`@`)) {
             especialNome = true;
         }
-        else if (nome.includes(`!`)) especialNome = true; 
+        else if (nome.includes(`!`)) especialNome = true;
         else if (nome.includes(`#`)) especialNome = true;
         else if (nome.includes(`$`)) especialNome = true;
         else if (nome.includes(`%`)) especialNome = true;
@@ -41,14 +76,14 @@
 
         //validação caractere especial na senha
         var especialPassword = false;
-        
+
         if (password.includes(`@`)) {
             especialPassword = true;
-        } 
+        }
         else if (password.includes(`!`)) especialPassword = true;
         else if (password.includes(`#`)) especialPassword = true;
         else if (password.includes(`%`)) especialPassword = true;
-        else if (password.includes(`&`)) especialPassword = true; 
+        else if (password.includes(`&`)) especialPassword = true;
         else if (password.includes(`$`)) especialPassword = true;
         else especialPassword = false;
 
@@ -57,27 +92,17 @@
         var senhaTemMinusculo = false;
 
         var passwordLength = password.length;
-        
-        // var senhaMaiuscula = password.toUpperCase(); 
-        // var senhaMinuscula = password.toLowerCase(); 
 
-        for (cont = 0; cont <= passwordLength; cont++) {
-            if (password[cont] == password[cont].toUpperCase) {
-                senhaTemMaiusculo == true
-            }
-        }
-        for (cont = 0; cont <= passwordLength; cont++) {
-            if (password[cont] == password[cont].toLowerCase) {
-                senhaTemMinusculo == true
-            }
-        }
-        
+        var temUpperCase = password !== password.toLowerCase();
+        var temLowerCase = password !== password.toUpperCase();
+
+
         //validação se a senha possui número 
         var passwordNumber = false;
 
         if (password.includes(`0`)) {
-            passwordNumber = `sim`;
-        } 
+            passwordNumber = true;
+        }
         else if (password.includes(`1`)) passwordNumber = true;
         else if (password.includes(`2`)) passwordNumber = true;
         else if (password.includes(`3`)) passwordNumber = true;
@@ -89,21 +114,97 @@
         else if (password.includes(`9`)) passwordNumber = true;
         else passwordNumber = false;
 
+        //codigo grupo
+        codigoGrupo = (Math.random() * 4).toFixed(0);
+
+        if (codigoGrupo >= 0 && codigoGrupo < 1) {
+            codigoGrupo = codigoGrupo + 1;
+        }
+
+        if (codigoGrupo == 1) {
+            grupoUsuario = `Grupo Ouro`;
+        } else if (codigoGrupo == 2) {
+            grupoUsuario = `Grupo Prata`;
+        } else if (codigoGrupo == 3) {
+            grupoUsuario = `Grupo Bronze`;
+        } else if (codigoGrupo == 4) {
+            grupoUsuario = `Grupo Cobre`;
+        }
+
         //validação final do cadastro
         if (especialNome || nomeTemEspaço) {
-                mensagem = `<span style="color: red;">Nome de usuário inválido. 
+            mensagem = `<span style="color: red;">Nome de usuário inválido. 
                 Verifique os caracteres utilizados.</span>`
-        } else {
-            mensagem = `Deu certo!`
-        }
-        
-        if ((passwordLength >= 8 && senhaTemMaiusculo && senhaTemMinusculo && passwordNumber)){
-                   mensagem = `Deu Certo!`;
+        } else if ((passwordLength >= 8 && temUpperCase && temLowerCase && passwordNumber && especialPassword)) {
+            mensagem = `Cadastrado Concluído! <br>
+                        -------------------------------- <br>
+                        usuário: ${nome} <br>
+                        senha: ${password} <br>
+                        código do grupo: ${codigoGrupo} <br>
+                        descrição: ${grupoUsuario}
+                        <br><button onclick="fazerLogin()">Fazer Login</button>`;
         } else {
             mensagem = `<span style="color: red;">A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial,
                                 uma letra maiúscula, uma letra minúscula e um número.</span>`;
         }
 
         divMensagem.innerHTML = mensagem;
-    }   
+    }
+
+    function fazerLogin() {
+        divCadastro.style.display = "none";
+        divLogin.style.display = "block";
+    }
+
+    function acessar() {
+        var nomeLogin = iptUserLogin.value;
+        var passwordLogin = iptPswLogin.value;
+        var grupoLogin = iptGrupo.value;
+
+        var mensagemLogin = ``;
+
+        if (grupoLogin == grupoUsuario && nomeLogin == nome && password == passwordLogin) {
+            mensagemLogin = `Login realizado com sucesso!
+                            <button onclick="fazerCompras()">Fazer Compras</button>`;
+        } else {
+            mensagemLogin = `Login Inválido! Informações não correspondem.`;
+        }
+      
+        divLoginMensagem.innerHTML = mensagemLogin;
+    }
+
+    function fazerCompras() {
+        divLogin.style.display = "none";
+        divComprar.style.display = "block";
+    }
+
+    function comprar(){
+        var quantidadeProdutos = (Math.random() * 10 + 1).toFixed(0);
+        var precoMedio = (Math.random() * (100 - 10) + 10).toFixed(2);
+        var valorOriginal = (quantidadeProdutos * precoMedio).toFixed(2);
+        var desconto = 0;
+
+        if (grupoUsuario == "Grupo Ouro") {
+            desconto = 0.20;
+        } else if (grupoUsuario == "Grupo Prata") {
+            desconto = 0.15;
+        } else if (grupoUsuario == "Grupo Bronze") {
+            desconto = 0.10;
+        } else {
+            desconto = 0.05;
+        }
+
+        var valorDesconto = (valorOriginal * desconto).toFixed(2);
+        var valorFinal = (valorOriginal - valorDesconto).toFixed(2);
+
+        var extrato = `Extrato de Compra<br>
+                       ------------------------<br>
+                       Quantidade de produtos: ${quantidadeProdutos}<br>
+                       Preço médio por produto: R$${precoMedio}<br>
+                       Valor original: R$${valorOriginal}<br>
+                       Desconto: ${(desconto * 100)}% (-R$${valorDesconto})<br>
+                       Valor final: R$${valorFinal}`;
+
+        divCompraMensagem.innerHTML = extrato;
+    }
 </script>
