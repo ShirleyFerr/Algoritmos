@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite uma fruta<input type="text" id="iptFruta">
+    <br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var frutas = [
+        'maçã',
+        'banana',
+        'melancia',
+        'pera',
+        'mamão',
+        'morango',
+        'kiwi',
+        'abacate'
+    ]
+    function pesquisar(){
+        var fruta = iptFruta.value
+
+        if (frutas.includes(fruta)) {
+            divMensagem.innerHTML = 'A fruta existe na lista <br>'
+        } else {
+             divMensagem.innerHTML = 'A fruta NÃO existe na lista <br>'
+        }
+    }
+</script>

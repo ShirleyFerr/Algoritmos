@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome:<input type="text" id="iptTexto">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">pesquisar</button>
+    <button onclick="ver_detalhes()">Detalhes</button>
+
+    <div id="divVetor"></div>
+</body>
+</html>
+
+<script>
+    var lista_nomes = [];
+
+    function cadastrar(){
+        var nome = iptTexto.value;  
+
+        lista_nomes.push(nome);
+
+        console.log(lista_nomes);
+        console.log( `lista ${lista_nomes}`);
+
+        divVetor.innerHTML = `${lista_nomes} <br>`;
+    }
+
+    function pesquisar(){
+        var nome = iptTexto.value;
+
+        var incluso = lista_nomes.includes(nome);
+
+        var teste = 'teste';
+        teste.includes('E');
+        teste.indexOf('E') >= 0;
+
+        if (incluso){
+            divVetor.innerHTML += 'inclue';
+        } else {
+            divVetor.innerHTML += 'não inclue';
+        }
+    }
+
+    function ver_detalhes(){
+
+
+        divVetor.innerHTML += `
+            Primeira posição: ${lista_nomes[0]} <br>
+            Segunda posição: ${lista_nomes[1]} <br>
+            Terceira posição:${lista_nomes[2]} <br>
+            Última posição: ${lista_nomes[lista_nomes.length - 1]}<br>
+        `;
+
+
+    }
+</script>
